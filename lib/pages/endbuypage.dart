@@ -31,7 +31,6 @@ class _EndBuyPageState extends State<EndBuyPage> {
     if (_isLoading) {
       Future<Map> response = buyProductRequest(args.products);
       response.then((value) => {
-            print(value),
             setState(() {
               _isLoading = false;
               b64Image = value['b64_qrcode_image'];
@@ -51,7 +50,7 @@ class _EndBuyPageState extends State<EndBuyPage> {
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
                 const Text(
-                  'Perfil',
+                  'Finalizar',
                   style: TextStyle(
                       color: Colors.white,
                       fontSize: 40,
@@ -96,9 +95,11 @@ class _EndBuyPageState extends State<EndBuyPage> {
             ElevatedButton(
               style:
                   ElevatedButton.styleFrom(backgroundColor: Colors.green[700]),
-              onPressed: () => {print(args)},
+              onPressed: () => {
+                Navigator.pop(context)
+              },
               child: const Text(
-                'Finalizar',
+                'Voltar',
                 style: TextStyle(
                     color: Colors.white,
                     fontSize: 14,
